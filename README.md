@@ -1,2 +1,14 @@
-# idmd
-Scientific Python course - project work
+# Interactive Data Manipulator and Descriptor
+## Scientific Python course - project work
+
+Main modules:
+- Sample dataset generation
+    - Different distributions
+- Visualization
+    - Different type of plots
+    - Interactivity
+- Manipulating data
+    - Outlier removal
+    - Normalizing
+- Report generation
+    - Output in PDF
