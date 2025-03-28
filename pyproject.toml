@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "idmd"
+version = "0.0"
+authors = [
+  { name="Bence Gercuj"},
+  { name="Csongor Loránd Laczkó"},
+  { name="Richárd Bence Rózsa"},
+]
+maintainers = [
+  { name="Bence Gercuj", email = "gercuj.bence@hallgato.ppke.hu"},
+  { name="Csongor Loránd Laczkó", email = "laczko.csongor.lorand@hallgato.ppke.hu"},
+  { name="Richárd Bence Rózsa", email = "rozsa.richard.bence@hallgato.ppke.hu"},
+]
+description = "IDMD - Interactive Data Manipulator and Descriptor"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = "GPL-3.0-only"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+# TODO: Change readthedocs link
+Homepage = "https://github.com/CsongorLaczko/idmd"
+Documentation = "http://your-readthedocs.com"
+Repository = "https://github.com/CsongorLaczko/idmd.git"
+Issues = "https://github.com/CsongorLaczko/idmd/issues"
+
+[tool.setuptools]
+packages = ["idmd"]

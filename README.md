@@ -1,7 +1,7 @@
 # Interactive Data Manipulator and Descriptor
 ## Scientific Python course - project work
 
-Main modules:
+Main functionalities:
 - Sample dataset generation
     - Different distributions
 - Visualization
