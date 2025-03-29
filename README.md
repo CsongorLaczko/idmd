@@ -12,3 +12,9 @@ Main functionalities:
     - Normalizing
 - Report generation
     - Output in PDF
+
+## Example
+Run example code using
+```
+streamlit run example.py
+```
