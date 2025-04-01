@@ -10,16 +10,16 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('../Model'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../idmd'))
 
 
 # -- Project information -----------------------------------------------------
 
 project = 'TCAMpy'
 copyright = '2025, Rózsa Richárd Bence'
-author = 'Bence Gercuj, Csongor Lóránd Laczkó, Richárd Bence Rózsa'
+author = 'Bence Gercuj, Csongor Loránd Laczkó, Richárd Bence Rózsa'
 
 
 # -- General configuration ---------------------------------------------------
