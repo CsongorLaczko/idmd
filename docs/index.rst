@@ -30,8 +30,6 @@ The following section provides the API documentation for the project.
    :undoc-members:
    :show-inheritance:
 
-This will pull the docstrings from `your_module.py` located in the `idmd` folder.
-
 Modules
 =======
 The following modules are part of the project:
