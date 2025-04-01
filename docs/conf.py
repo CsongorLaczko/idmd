@@ -17,8 +17,7 @@ sys.path.insert(0, os.path.abspath('../idmd'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'TCAMpy'
-copyright = '2025, Rózsa Richárd Bence'
+project = 'idmd'
 author = 'Bence Gercuj, Csongor Loránd Laczkó, Richárd Bence Rózsa'
 
 
