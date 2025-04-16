@@ -47,7 +47,7 @@ def create_example(default_file: Optional[str] = None) -> None:
         - Matplotlib (`matplotlib`)
 
     """
-    # Use Streamlit's wide layout mode
+    
     st.set_page_config(layout="wide")
     
     st.title("Data Manipulator and Descriptor")
@@ -70,10 +70,10 @@ def create_example(default_file: Optional[str] = None) -> None:
     if "df" in st.session_state:
         df = st.session_state.df
 
-        col1, col2, col3 = st.columns([1, 1, 1])
+        col1, col2, col3 = st.columns([8, 1, 8])
 
         with col1:
-            st.markdown("<h1 style='text-align: center;'>Data Description</h1>", unsafe_allow_html=True)
+            st.markdown("<h1 style='text-align: center;'>Description | Manipulation</h1>", unsafe_allow_html=True)
             st.dataframe(df.head())
 
             # Basic Information
@@ -87,9 +87,6 @@ def create_example(default_file: Optional[str] = None) -> None:
                 info_str = buffer.getvalue()
                 st.text(info_str)
 
-        with col2:
-            st.markdown("<h1 style='text-align: center;'>Data Manipulation</h1>", unsafe_allow_html=True)
-    
             # Reset to Default
             if st.button("Reset to Default Data"):
                 if "original_df" in st.session_state:
@@ -97,44 +94,105 @@ def create_example(default_file: Optional[str] = None) -> None:
                     st.success("Data has been reset to original upload.")
                 else:
                     st.warning("No original data found to reset.")
-
+    
             # Swap Two Columns
-            if st.checkbox("Switch Two Columns", value=True):
-                st.write("## Switch Two Columns")
-                col_1: str = st.selectbox("Select First Column", df.columns, index=0, key="switch1")
-                col_2: str = st.selectbox("Select Second Column", df.columns, index=1, key="switch2")
-
-                if st.button("Swap Columns"):
-                    if col_1 != col_2:
-                        col_order: List[str] = df.columns.tolist()
-                        idx1, idx2 = col_order.index(col_1), col_order.index(col_2)
-                        col_order[idx1], col_order[idx2] = col_order[idx2], col_order[idx1]
-                        df = df[col_order]
-                        st.session_state.df = df.copy()
-                        st.success(f"Swapped '{col_1}' and '{col_2}'")
-                    else:
-                        st.warning("Please select two different columns.")
-
+            st.markdown("<h3 style='text-align: center;'>Switch Two Columns</h3>", unsafe_allow_html=True)
+            col_1: str = st.selectbox("Select First Column", df.columns, index=0, key="switch1")
+            col_2: str = st.selectbox("Select Second Column", df.columns, index=1, key="switch2")
+    
+            if st.button("Swap Columns"):
+                if col_1 != col_2:
+                    col_order: List[str] = df.columns.tolist()
+                    idx1, idx2 = col_order.index(col_1), col_order.index(col_2)
+                    col_order[idx1], col_order[idx2] = col_order[idx2], col_order[idx1]
+                    df = df[col_order]
+                    st.session_state.df = df.copy()
+                    st.success(f"Swapped '{col_1}' and '{col_2}'")
+                else:
+                    st.warning("Please select two different columns.")
+    
             # Drop Columns
-            if st.checkbox("Drop Columns", value=True):
-                st.write("## Drop a Column")
-                drop_col: str = st.selectbox("Select a Column to Drop", df.columns)
-
-                if st.button("Drop Column"):
-                    df = df.drop(columns=[drop_col])
+            st.markdown("<h3 style='text-align: center;'>Drop a Column</h3>", unsafe_allow_html=True)
+            drop_col: str = st.selectbox("Select a Column to Drop", df.columns)
+    
+            if st.button("Drop Column"):
+                df = df.drop(columns=[drop_col])
+                st.session_state.df = df.copy()
+                st.success(f"Dropped column: {drop_col}")
+    
+            selected_columns: List[str] = st.multiselect(
+                "Select Columns to Keep", df.columns, default=list(df.columns)
+            )
+            if st.button("Apply Column Selection"):
+                df = df[selected_columns]
+                st.session_state.df = df.copy()
+                st.success("Selected columns updated.")
+    
+            # Replace Values
+            st.markdown("<h3 style='text-align: center;'>Replace Values in Column</h3>", unsafe_allow_html=True)
+    
+            replace_col = st.selectbox("Select Column to Modify", df.columns)
+            
+            values_to_replace = st.selectbox(
+                "Select Values to Replace",
+                ["0", "np.nan", "outliers"]
+            )
+            
+            replacement_method = st.selectbox(
+                "Replace With",
+                ["median", "min", "max", "random", "np.nan"]
+            )
+            
+            if st.button("Apply Value Replacement"):
+                if replace_col and values_to_replace and replacement_method:
+                    col_data = df[replace_col]
+                    if "0" in values_to_replace:
+                        if "median" in replacement_method:
+                            col_data = col_data.replace(0, col_data.median())
+                        if "min" in replacement_method:
+                            col_data = col_data.replace(0, col_data.min())
+                        if "max" in replacement_method:
+                            col_data = col_data.replace(0, col_data.max())
+                        if "random" in replacement_method:
+                            col_data = col_data.replace(0, col_data.sample(n=1).values[0])
+                        if "np.nan" in replacement_method:
+                            col_data = col_data.replace(0, pd.NA)
+                    if "np.nan" in values_to_replace:
+                        if "median" in replacement_method:
+                            col_data = col_data.fillna(col_data.median())
+                        if "min" in replacement_method:
+                            col_data = col_data.fillna(col_data.min())
+                        if "max" in replacement_method:
+                            col_data = col_data.fillna(col_data.max())
+                        if "random" in replacement_method:
+                            col_data = col_data.fillna(col_data.dropna().sample(n=1).values[0])
+                    if "outliers" in values_to_replace:
+                        q1 = col_data.quantile(0.25)
+                        q3 = col_data.quantile(0.75)
+                        iqr = q3 - q1
+                        lower = q1 - 1.5 * iqr
+                        upper = q3 + 1.5 * iqr
+                        outliers_mask = (col_data < lower) | (col_data > upper)
+                        for method in replacement_method:
+                            if method == "median":
+                                col_data[outliers_mask] = col_data.median()
+                            elif method == "min":
+                                col_data[outliers_mask] = col_data.min()
+                            elif method == "max":
+                                col_data[outliers_mask] = col_data.max()
+                            elif method == "random":
+                                col_data[outliers_mask] = col_data.drop(outliers_mask).sample(n=1).values[0]
+                            elif method == "np.nan":
+                                col_data[outliers_mask] = pd.NA
+            
+                    df[replace_col] = col_data
                     st.session_state.df = df.copy()
-                    st.success(f"Dropped column: {drop_col}")
-
-                selected_columns: List[str] = st.multiselect(
-                    "Select Columns to Keep", df.columns, default=list(df.columns)
-                )
-                if st.button("Apply Column Selection"):
-                    df = df[selected_columns]
-                    st.session_state.df = df.copy()
-                    st.success("Selected columns updated.")
-
+                    st.success(f"Values in '{replace_col}' replaced successfully.")
+                else:
+                    st.warning("Please select a column, values to replace, and replacement method.")
+    
             # Download Data
-            st.write("## Download Processed Data")
+            st.markdown("<h3 style='text-align: center;'>Download Processed Data</h3>", unsafe_allow_html=True)
             csv_data: str = df.to_csv(index=False)
             st.download_button(
                 label="Download Processed Data",
@@ -146,6 +204,14 @@ def create_example(default_file: Optional[str] = None) -> None:
         with col3:
             st.markdown("<h1 style='text-align: center;'>Data Visualization</h1>", unsafe_allow_html=True)
 
+            # Column Overview DataFrame
+            preview_data = pd.DataFrame({
+                'Data Type': [df[col].dtype for col in df.columns],
+                'Plottable': [pd.api.types.is_numeric_dtype(df[col]) for col in df.columns]
+            }).T
+            preview_data.columns = df.columns
+            st.dataframe(preview_data)
+
             numeric_cols = df.select_dtypes(include='number').columns.tolist()
             default_plot_cols = numeric_cols[:10]
 
@@ -155,8 +221,8 @@ def create_example(default_file: Optional[str] = None) -> None:
                 st.session_state.custom_heatmap_cols = None
 
             # Plot Columns
-            st.write("## Plot Selected Columns")
-            plot_columns: List[str] = st.multiselect("Select Columns for Custom Plot", df.columns)
+            st.markdown("<h3 style='text-align: center;'>Plot Selected Columns</h3>", unsafe_allow_html=True)
+            plot_columns: List[str] = st.multiselect("Select Columns for Custom Plot", numeric_cols)
 
             if st.button("Generate Custom Plot"):
                 if plot_columns:
@@ -175,7 +241,7 @@ def create_example(default_file: Optional[str] = None) -> None:
                 st.pyplot(fig)
 
             # Correlation Heatmap
-            st.write("## Correlation Heatmap")
+            st.markdown("<h3 style='text-align: center;'>Correlation Heatmap</h3>", unsafe_allow_html=True)
             default_corr_cols = numeric_cols[:10]
             custom_corr_cols: List[str] = st.multiselect("Select Columns for Custom Heatmap", numeric_cols)
 
@@ -188,6 +254,30 @@ def create_example(default_file: Optional[str] = None) -> None:
             if st.session_state.custom_heatmap_cols:
                 fig, ax = plt.subplots()
                 sns.heatmap(df[st.session_state.custom_heatmap_cols].corr(), annot=True, cmap="coolwarm", ax=ax)
+                st.pyplot(fig)
+            elif default_corr_cols:
+                st.write("### Auto Heatmap (First 10 Numeric Columns)")
+                fig, ax = plt.subplots()
+                sns.heatmap(df[default_corr_cols].corr(), annot=True, cmap="coolwarm", ax=ax)
+                st.pyplot(fig)
+
+            # Histogram
+            st.markdown("<h3 style='text-align: center;'>Histogram</h3>", unsafe_allow_html=True)
+            default_hist_cols = numeric_cols[:10]
+            custom_hist_cols: List[str] = st.multiselect("Select Columns for Custom Histogram", numeric_cols)
+
+            if st.button("Generate Custom Histogram"):
+                if custom_hist_cols:
+                    fig, ax = plt.subplots()
+                    df[custom_hist_cols].hist(ax=ax)
+                    st.pyplot(fig)
+                else:
+                    st.warning("Please select at least one numeric column.")
+
+            elif default_hist_cols:
+                st.write("### Auto Histogram (First 10 Numeric Columns)")
+                fig, ax = plt.subplots()
+                df[default_hist_cols].hist(ax=ax)
                 st.pyplot(fig)
             elif default_corr_cols:
                 st.write("### Auto Heatmap (First 10 Numeric Columns)")
