@@ -1,0 +1,17 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+        }
+    },
+    "black-formatter.importStrategy": "fromEnvironment",
+    "black-formatter.args": [
+        "--config",
+        "${workspaceFolder}/pyproject.toml",
+    ],
+    "flake8.args": [
+        "--config",
+        "${workspaceFolder}/pyproject.toml",
+    ]
+}

@@ -10,21 +10,22 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../idmd'))
+
+sys.path.insert(0, os.path.abspath("../idmd"))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'idmd'
-author = 'Bence Gercuj, Csongor Loránd Laczkó, Richárd Bence Rózsa'
+project = "idmd"
+author = "Bence Gercuj, Csongor Loránd Laczkó, Richárd Bence Rózsa"
 
 
 # -- General configuration ---------------------------------------------------
 
 extensions = [
-  'sphinx.ext.autodoc',
-  'sphinx.ext.napoleon',
-  'sphinx_rtd_theme',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx_rtd_theme",
 ]
 
 # -- Options for HTML output -------------------------------------------------
