@@ -1,5 +1,7 @@
 from typing import List, Optional
 
+from matplotlib.backends.backend_pdf import PdfPages
+from matplotlib import gridspec
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -173,17 +175,17 @@ def create_example(default_file: Optional[str] = None) -> None:
                         lower = q1 - 1.5 * iqr
                         upper = q3 + 1.5 * iqr
                         outliers_mask = (col_data < lower) | (col_data > upper)
-                        for method in replacement_method:
-                            if method == "median":
-                                col_data[outliers_mask] = col_data.median()
-                            elif method == "min":
-                                col_data[outliers_mask] = col_data.min()
-                            elif method == "max":
-                                col_data[outliers_mask] = col_data.max()
-                            elif method == "random":
-                                col_data[outliers_mask] = col_data.drop(outliers_mask).sample(n=1).values[0]
-                            elif method == "np.nan":
-                                col_data[outliers_mask] = pd.NA
+                        
+                        if replacement_method == "median":
+                            col_data[outliers_mask] = col_data.median()
+                        elif replacement_method == "min":
+                            col_data[outliers_mask] = col_data.min()
+                        elif replacement_method == "max":
+                            col_data[outliers_mask] = col_data.max()
+                        elif replacement_method == "random":
+                            col_data[outliers_mask] = col_data.drop(outliers_mask).sample(n=1).values[0]
+                        elif replacement_method == "np.nan":
+                            col_data[outliers_mask] = pd.NA
             
                     df[replace_col] = col_data
                     st.session_state.df = df.copy()
@@ -200,6 +202,16 @@ def create_example(default_file: Optional[str] = None) -> None:
                 file_name="processed_data.csv",
                 mime="text/csv",
             )
+            
+            # Download Report
+            if st.button("Generate PDF Report"):
+                pdf_buffer = create_pdf_report(df)
+                st.download_button(
+                    label="Download PDF Report",
+                    data=pdf_buffer,
+                    file_name="data_report.pdf",
+                    mime="application/pdf"
+                )
 
         with col3:
             st.markdown("<h1 style='text-align: center;'>Data Visualization</h1>", unsafe_allow_html=True)
@@ -284,3 +296,94 @@ def create_example(default_file: Optional[str] = None) -> None:
                 fig, ax = plt.subplots()
                 sns.heatmap(df[default_corr_cols].corr(), annot=True, cmap="coolwarm", ax=ax)
                 st.pyplot(fig)
+
+
+def create_pdf_report(df: pd.DataFrame) -> io.BytesIO:
+    """
+    Create a polished PDF report containing:
+    - DataFrame preview
+    - DataFrame statistics (rounded)
+    - Line plot + correlation heatmap
+    - Histograms in a compact grid
+    """
+    
+    buffer = io.BytesIO()
+    A4_inches = (8.27, 11.69)  # A4 size
+
+    with PdfPages(buffer) as pdf:
+        numeric_cols = df.select_dtypes(include='number').columns.tolist()
+        plot_cols = st.session_state.get('custom_plot_cols') or numeric_cols[:10]
+        heatmap_cols = st.session_state.get('custom_heatmap_cols') or numeric_cols[:10]
+        hist_cols = st.session_state.get('custom_hist_cols') or numeric_cols[:10]
+
+        # --- Page 1: Preview + Description ---
+        fig = plt.figure(figsize=A4_inches)
+        gs = gridspec.GridSpec(4, 1, height_ratios=[1.5, 0.5, 2, 2])
+
+        # DataFrame Preview
+        ax1 = fig.add_subplot(gs[0])
+        ax1.axis('off')
+        # Add title manually inside the same axis
+        ax1.set_title("Dataframe Preview")
+        table1 = ax1.table(cellText=df.head().values, colLabels=df.columns, loc='center')
+        table1.auto_set_font_size(False)
+        table1.set_fontsize(8)
+        table1.scale(1, 1.5)
+        
+        # DataFrame Describe
+        desc = df.describe().round(3)
+        ax2 = fig.add_subplot(gs[2])
+        ax2.axis('off')
+        ax2.set_title("Dataframe Statistics")
+        table2 = ax2.table(cellText=desc.values, colLabels=desc.columns, rowLabels=desc.index, loc='center')
+        table2.auto_set_font_size(False)
+        table2.set_fontsize(6)
+        table2.scale(1, 1.5)
+        
+        fig.tight_layout(pad=1.0)
+        pdf.savefig(fig)
+        plt.close(fig)
+
+        # --- Page 2: Line Plot + Correlation Heatmap ---
+        fig = plt.figure(figsize=A4_inches)
+        gs = gridspec.GridSpec(2, 1, height_ratios=[1, 1])
+
+        ax1 = fig.add_subplot(gs[0])
+        if plot_cols:
+            df[plot_cols].plot(ax=ax1)
+            ax1.set_title('Line Plot of Selected Columns', fontsize=12, fontweight='bold')
+        ax1.set_xlabel('')
+        ax1.set_ylabel('')
+
+        ax2 = fig.add_subplot(gs[1])
+        if heatmap_cols:
+            sns.heatmap(df[heatmap_cols].corr(), annot=True, cmap='coolwarm', ax=ax2, cbar=True)
+            ax2.set_title('Correlation Heatmap', fontsize=12, fontweight='bold')
+
+        fig.tight_layout(pad=0.5)
+        pdf.savefig(fig)
+        plt.close(fig)
+
+        # --- Page 3: All Histograms in one Figure (grid layout) ---
+        n_cols = 3 
+        n_rows = (len(hist_cols) + n_cols - 1) // n_cols
+        fig, axs = plt.subplots(n_rows, n_cols, figsize=A4_inches)
+
+        axs = axs.flatten()
+
+        for idx, col in enumerate(hist_cols):
+            sns.histplot(df[col], kde=True, ax=axs[idx])
+            axs[idx].set_title(f'Histogram of {col}', fontsize=10)
+            axs[idx].set_xlabel('')
+            axs[idx].set_ylabel('')
+
+        # Hide any empty subplots
+        for i in range(len(hist_cols), len(axs)):
+            axs[i].axis('off')
+
+        fig.tight_layout()
+        pdf.savefig(fig)
+        plt.close(fig)
+
+    buffer.seek(0)
+    return buffer
