@@ -1,4 +1,4 @@
 """
-This module handles components for the UI.
-Contains multiple submodules.
+This module handles data visualization.
+Contains the following submodules: heatmaps.py, histograms.py, plots.py, visualizer.py.
 """
