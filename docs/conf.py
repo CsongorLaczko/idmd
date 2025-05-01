@@ -31,6 +31,28 @@ extensions = [
 
 autosummary_generate = True
 
+def run_apidoc(_):
+    from sphinx.ext.apidoc import main
+    import os
+    import shutil
+
+    src_dir = os.path.abspath('../idmd')
+    output_dir = os.path.abspath('./generated')
+
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
+
+    main([
+        '--force',
+        '--no-toc',
+        '--separate',
+        '-o', output_dir, src_dir, 
+        '**/tests/*',  # optionally exclude tests
+    ])
+
+def setup(app):
+    app.connect('builder-inited', run_apidoc)
+
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "sphinx_rtd_theme"
