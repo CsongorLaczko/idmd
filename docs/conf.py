@@ -1,7 +1,5 @@
 import os
 import sys
-import shutil
-import subprocess
 
 # -- Path setup -----------------------------------------------------
 sys.path.insert(0, os.path.abspath(".."))  # project root
@@ -41,6 +39,6 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
     import sphinx_rtd_theme
     html_theme = "sphinx_rtd_theme"
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-html_css_files = ["readthedocs-custom.css"] # Override some CSS settings
+# html_css_files = ["readthedocs-custom.css"] # Override some CSS settings
 
 html_static_path = ["_static"]
