@@ -1,3 +1,9 @@
+"""
+Python package for data description, manipulation and visualization.
+Contains the following modules: data, manipulation, report, ui, visualization, app
+These modules contain more submodules (except for app)
+"""
+
 from importlib.metadata import PackageNotFoundError, version
 
 from .app import DataApp
