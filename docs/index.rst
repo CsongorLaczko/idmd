@@ -38,7 +38,6 @@ API
    :toctree: generated
 
    idmd
-   idmd.data
 
 License
 =======
