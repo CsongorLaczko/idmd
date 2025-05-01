@@ -1,3 +1,4 @@
+"""Module for value replacement component."""
 import streamlit as st
 from pandas import DataFrame
 
