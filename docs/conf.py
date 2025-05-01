@@ -28,6 +28,8 @@ extensions = [
     "sphinx_rtd_theme",
 ]
 
+autosummary_generate = True
+
 # -- Options for HTML output -------------------------------------------------
 
 html_theme = "sphinx_rtd_theme"
