@@ -1,4 +1,5 @@
-## Features
+Features
+========
 
 1. **Sample Dataset Generation**:
    - Generate datasets with different distributions (e.g., normal, uniform).
