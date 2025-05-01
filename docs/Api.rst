@@ -43,22 +43,22 @@ Data Manipulation
 Data Visualization
 -----------------
 
-.. automodule:: idmd/visualization.heatmaps
+.. automodule:: idmd/visualization/heatmaps
    :members:
    :undoc-members:
    :show-inheritance:
 
-.. automodule:: idmd/visualization.histograms
+.. automodule:: idmd/visualization/histograms
    :members:
    :undoc-members:
    :show-inheritance
 
-.. automodule:: idmd/visualization.plots
+.. automodule:: idmd/visualization/plots
    :members:
    :undoc-members:
    :show-inheritance
 
-.. automodule:: idmd/visualization.visualizer
+.. automodule:: idmd/visualization/visualizer
    :members:
    :undoc-members:
    :show-inheritance
