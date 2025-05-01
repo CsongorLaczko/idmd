@@ -2,7 +2,7 @@ API Documentation
 =================
 
 .. autosummary::
-   :toctree: generated
+   :toctree: _autosummary
    :recursive:
 
-   generated/modules
+   idmd
