@@ -1,3 +1,4 @@
+"""Report creation class"""
 import io
 
 import matplotlib.pyplot as plt
