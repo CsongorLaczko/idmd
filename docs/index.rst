@@ -36,9 +36,14 @@ API
 
 .. autosummary::
    :toctree: generated
-   :recursive:
 
    idmd
+   idmd.data
+   idmd.manipulation
+   idmd.report
+   idmd.ui
+   idmd.visualization
+   idmd.app
 
 License
 =======
