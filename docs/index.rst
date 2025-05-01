@@ -39,6 +39,7 @@ API
 
    idmd
    idmd/ui
+   idmd/data
 
 License
 =======
