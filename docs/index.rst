@@ -16,5 +16,5 @@ Git repository: https://github.com/CsongorLaczko/idmd
 
    Installation
    Usage
-   Api
+   API reference <_autosummary/mytoolbox>
    License
