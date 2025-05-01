@@ -1,3 +1,4 @@
+"""File uploader class"""
 import pandas as pd
 
 
