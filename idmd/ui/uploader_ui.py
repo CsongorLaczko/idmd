@@ -1,3 +1,4 @@
+"""Module for file uploader component."""
 import streamlit as st
 
 from ..data.uploader import FileUploader
