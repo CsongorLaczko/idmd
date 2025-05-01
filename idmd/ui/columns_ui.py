@@ -1,3 +1,4 @@
+"""Module for column manipulator component."""
 import pandas as pd
 import streamlit as st
 
