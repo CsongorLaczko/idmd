@@ -47,8 +47,8 @@ def run_apidoc(app):
     cmd = [
         sys.executable,
         '-m',
-        'sphinx.apidoc',
-        '-f',            # force overwrite
+        'sphinx.ext.apidoc',
+        '-f',
         '-o', output_dir,
         src_dir,
         '--no-toc',
