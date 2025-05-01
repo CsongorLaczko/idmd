@@ -1,3 +1,4 @@
+"""Value replacement class"""
 import pandas as pd
 
 
