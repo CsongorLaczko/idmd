@@ -36,9 +36,6 @@ Modules
    modules
 
 API Documentation
-=============
-
-API Documentation
 =================
 
 .. automodule:: idmd
