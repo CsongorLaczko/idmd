@@ -10,7 +10,6 @@ Welcome to idmd's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Installation
    Usage
    Modules
    API
@@ -23,23 +22,6 @@ To use our package, first install it using pip:
 .. code-block:: console
 
    (.venv) $ pip install idmd
-
-Usage
-=====
-Instructions on how to use the project, including code examples.
-
-Modules
-================
-
-API
-===
-
-.. autosummary::
-   :toctree: generated
-
-   idmd
-   idmd/ui
-   idmd/data
 
 License
 =======
