@@ -13,15 +13,16 @@ Welcome to idmd's documentation!
    Installation
    Usage
    Modules
-   API Documentation
+   API
    License
 
 Installation
 ===============
-To get started with this project, follow the instructions below.
+To use our package, first install it using pip:
 
-1. Install the necessary dependencies using `conda install` or `pip`.
-2. Clone the repository and set up your environment.
+.. code-block:: console
+
+   (.venv) $ pip install idmd
 
 Usage
 =====
@@ -29,27 +30,12 @@ Instructions on how to use the project, including code examples.
 
 Modules
 ================
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
 
-   modules
-
-API Documentation
-=================
-
-.. automodule:: idmd
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :imported-members:
-   :inherited-members:
-   :special-members: __init__
-   :private-members:
+API
+===
 
 .. autosummary::
-   :recursive:
-   :toctree: _autosummary
+   :toctree: generated
 
    idmd
 
