@@ -1,3 +1,4 @@
+"""Data exporter class"""
 import pandas as pd
 
 
