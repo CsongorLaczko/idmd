@@ -1,3 +1,4 @@
+"""Module for orchestrating component integration."""
 from typing import Dict, List, Optional, Tuple
 
 import streamlit as st
