@@ -10,18 +10,11 @@ Welcome to idmd's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   Installation
    Usage
    Modules
-   API
+   Api
    License
-
-Installation
-===============
-To use our package, first install it using pip:
-
-.. code-block:: console
-
-   (.venv) $ pip install idmd
 
 License
 =======
