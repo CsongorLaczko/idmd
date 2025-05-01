@@ -1,4 +1,4 @@
-"""Value replacement class"""
+"""Module for value replacement."""
 import pandas as pd
 
 
