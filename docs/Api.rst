@@ -1,12 +1,7 @@
 API
 ===
 
-.. automodule:: idmd
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-idmd.app
+Creatin the Dashboard
 -----------------
 
 .. automodule:: idmd.app
@@ -14,42 +9,64 @@ idmd.app
    :undoc-members:
    :show-inheritance:
 
-idmd.data
+Data Handling
 ---------
 
-.. automodule:: idmd.data
+.. automodule:: idmd.data.exporter
    :members:
    :undoc-members:
    :show-inheritance:
 
-idmd.manipulation
------------------
-
-.. automodule:: idmd.manipulation
+.. automodule:: idmd.data.generator
    :members:
    :undoc-members:
    :show-inheritance:
 
-idmd.ui
------------------
-
-.. automodule:: idmd.ui
+.. automodule:: idmd.data.uploader
    :members:
    :undoc-members:
    :show-inheritance:
 
-idmd.visualization
+Data Manipulation
 -----------------
 
-.. automodule:: idmd.visualization
+.. automodule:: idmd.manipulation.columns
    :members:
    :undoc-members:
    :show-inheritance:
 
-idmd.report
+.. automodule:: idmd.manipulation.replace
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Data Visualization
 -----------------
 
-.. automodule:: idmd.report
+.. automodule:: idmd/visualization.heatmaps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+.. automodule:: idmd/visualization.histograms
+   :members:
+   :undoc-members:
+   :show-inheritance
+
+.. automodule:: idmd/visualization.plots
+   :members:
+   :undoc-members:
+   :show-inheritance
+
+.. automodule:: idmd/visualization.visualizer
+   :members:
+   :undoc-members:
+   :show-inheritance
+
+Report Generation
+-----------------
+
+.. automodule:: idmd.report.report
    :members:
    :undoc-members:
    :show-inheritance:
