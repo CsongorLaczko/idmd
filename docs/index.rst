@@ -10,42 +10,43 @@ Welcome to idmd's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   installation
-   usage
-   modules
+   Installation
+   Usage
+   Modules
+   API Documentation
+   License
 
-Getting Started
+Installation
 ===============
 To get started with this project, follow the instructions below.
 
 1. Install the necessary dependencies using `conda install` or `pip`.
 2. Clone the repository and set up your environment.
 
-API Documentation
-================
-The following section provides the API documentation for the project.
-
-.. automodule:: example
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Modules
-=======
-The following modules are part of the project:
-
-.. toctree::
-   :maxdepth: 1
-
-   modules
-
-Installation
-============
-Instructions for installing the project.
-
 Usage
 =====
 Instructions on how to use the project, including code examples.
+
+Modules
+================
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   modules
+
+API Documentation
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   idmd.app
+   idmd.data
+   idmd.manipulation
+   idmd.ui
+   idmd.visualization
+   idmd.report
 
 License
 =======
