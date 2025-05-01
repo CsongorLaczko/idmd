@@ -1,4 +1,5 @@
 import streamlit as st
+from pandas import DataFrame
 
 from ..manipulation.replace import ReplaceLogic
 from .base import Component
@@ -18,15 +19,15 @@ class ReplaceUI(Component):
             st.warning("No dataset available. Please upload a dataset first.")
             return
 
-        df = st.session_state.df
+        df: DataFrame = st.session_state.df
 
-        replace_col = st.selectbox("Select Column to Modify", df.columns)
-        values_to_replace = st.selectbox("Select Values to Replace", ["0", "np.nan", "outliers", "all"])
-        replacement_method = st.selectbox("Replace With", ["median", "min", "max", "random", "np.nan"])
+        replace_col: str = st.selectbox("Select Column to Modify", df.columns)
+        values_to_replace: str = st.selectbox("Select Values to Replace", ["0", "np.nan", "outliers", "all"])
+        replacement_method: str = st.selectbox("Replace With", ["median", "min", "max", "random", "np.nan"])
 
         if st.button("Apply Value Replacement"):
             if replace_col and values_to_replace and replacement_method:
-                updated_df = ReplaceLogic.replace_values(df, replace_col, values_to_replace, replacement_method)
+                updated_df: DataFrame = ReplaceLogic.replace_values(df, replace_col, values_to_replace, replacement_method)
                 st.session_state.df = updated_df
                 st.success(f"Values in '{replace_col}' replaced successfully.")
             else:

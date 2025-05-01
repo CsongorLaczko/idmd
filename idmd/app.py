@@ -2,12 +2,13 @@ from typing import Dict, List, Optional, Tuple
 
 import streamlit as st
 from idmd.ui.base import Component
+from streamlit.commands.page_config import Layout
 
 
 class DataApp:
     """Orchestrates component integration and layout for a Streamlit application."""
 
-    def __init__(self, title: str = "Interactive Data Manipulator and Descriptor", layout: str = "wide") -> None:
+    def __init__(self, title: str = "Interactive Data Manipulator and Descriptor", layout: Layout = "wide") -> None:
         """
         Initializes the DataApp with a title and layout.
 
