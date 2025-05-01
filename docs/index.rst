@@ -38,15 +38,23 @@ Modules
 API Documentation
 =============
 
+API Documentation
+=================
+
 .. automodule:: idmd
    :members:
    :undoc-members:
    :show-inheritance:
+   :imported-members:
+   :inherited-members:
+   :special-members: __init__
+   :private-members:
 
-.. toctree::
-   :maxdepth: 2
+.. autosummary::
+   :recursive:
+   :toctree: _autosummary
 
-   idmd/index
+   idmd
 
 License
 =======
