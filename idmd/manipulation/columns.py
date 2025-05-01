@@ -1,4 +1,4 @@
-"""Column manipulation class"""
+"""Module for column manipulation."""
 from typing import List
 
 import pandas as pd
