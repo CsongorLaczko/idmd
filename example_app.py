@@ -1,18 +1,26 @@
 from idmd import (
-    ColumnManipulator,
+    ColumnManipulatorUI,
     DataApp,
-    DataExporter,
+    DataExporterUI,
+    DataPreview,
     DataStats,
-    DataVisualizer,
-    FileUploader,
+    DataVisualizerUI,
+    FileUploaderUI,
+    ReplaceUI,
+    ReportUI,
 )
 
-app = DataApp(title="Advanced Data Explorer")
+app = DataApp()
 (
-    app.add_component(FileUploader())
-     .add_component(DataStats())
-     .add_component(ColumnManipulator())
-     .add_component(DataVisualizer())
-     .add_component(DataExporter())
+    app.set_column_name(0, "Description | Manipulation")
+    .add_component(FileUploaderUI())
+    .add_component(DataPreview())
+    .add_component(DataStats())
+    .add_component(ReplaceUI())
+    .add_component(ColumnManipulatorUI())
+    .add_component(DataExporterUI())
+    .add_component(ReportUI())
+    .set_column_name(1, "Visualization | Export | Report")
+    .add_component(DataVisualizerUI(position=1))
 )
 app.run()

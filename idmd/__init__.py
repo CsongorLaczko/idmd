@@ -1,19 +1,27 @@
 from importlib.metadata import PackageNotFoundError, version
 
 from .app import DataApp
-from .data.export import DataExporter
-from .data.loader import FileUploader
-from .ui.column_manipulator import ColumnManipulator
+from .ui.columns_ui import ColumnManipulatorUI
+from .ui.data_preview import DataPreview
 from .ui.data_stats import DataStats
-from .viz.visualizer import DataVisualizer
+from .ui.exporter_ui import DataExporterUI
+from .ui.generator_ui import DataGeneratorUI
+from .ui.replace_ui import ReplaceUI
+from .ui.report_ui import ReportUI
+from .ui.uploader_ui import FileUploaderUI
+from .ui.visualizer_ui import DataVisualizerUI
 
 __all__ = [
     "DataApp",
-    "FileUploader",
+    "FileUploaderUI",
+    "DataExporterUI",
+    "DataGeneratorUI",
+    "ColumnManipulatorUI",
     "DataStats",
-    "ColumnManipulator",
-    "DataVisualizer",
-    "DataExporter",
+    "DataPreview",
+    "ReplaceUI",
+    "ReportUI",
+    "DataVisualizerUI",
 ]
 
 try:

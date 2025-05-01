@@ -1,16 +1,19 @@
-# idmd/ui/base.py
 from abc import ABC, abstractmethod
 
 
 class Component(ABC):
-    """Abstract base class for all UI components"""
+    """Abstract base class for all UI components."""
+
+    def __init__(self, position: int = 0) -> None:
+        """
+        Initializes the component with a default position.
+
+        Args:
+            position (int): The column position of the component. Defaults to 0.
+        """
+        self.position = position
 
     @abstractmethod
     def render(self) -> None:
-        """Render component in Streamlit interface"""
+        """Render the component in the Streamlit interface."""
         raise NotImplementedError
-
-    @property
-    def position(self) -> str:
-        """Determine component column placement"""
-        return "left"
