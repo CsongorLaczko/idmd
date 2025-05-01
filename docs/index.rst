@@ -39,11 +39,6 @@ API
 
    idmd
    idmd.data
-   idmd.manipulation
-   idmd.report
-   idmd.ui
-   idmd.visualization
-   idmd.app
 
 License
 =======
