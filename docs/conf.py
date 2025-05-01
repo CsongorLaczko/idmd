@@ -1,65 +1,56 @@
-# Configuration file for the Sphinx documentation builder.
-
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Path setup --------------------------------------------------------------
-
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-
 import os
 import sys
+import shutil
+import subprocess
 
-sys.path.insert(0, os.path.abspath("../idmd"))
+# -- Path setup -----------------------------------------------------
+sys.path.insert(0, os.path.abspath(".."))  # project root
+sys.path.insert(0, os.path.abspath("../idmd"))  # your package
 
-
-# -- Project information -----------------------------------------------------
-
+# -- Project information --------------------------------------------
 project = "idmd"
 author = "Bence Gercuj, Csongor Loránd Laczkó, Richárd Bence Rózsa"
 
-
-# -- General configuration ---------------------------------------------------
-
+# -- General configuration ------------------------------------------
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
-    "sphinx_rtd_theme",
-    'sphinx.ext.autosummary',
+    "sphinx.ext.autosummary",
+    "sphinx.ext.viewcode",
 ]
 
-autosummary_generate = True
+autosummary_generate = True  # Needed for autosummary
+
+templates_path = ["_templates"]
+exclude_patterns = []
+
+# -- Options for HTML output ----------------------------------------
+html_theme = "sphinx_rtd_theme"
+html_static_path = ["_static"]
+
+# -- Autodoc: include both class docstring and __init__ docstring ---
+autoclass_content = "both"
+
+# -- Sphinx-apidoc automation ---------------------------------------
 
 def run_apidoc(app):
-    import subprocess
-    import sys
-    import os
-    import shutil
-
-    src_dir = os.path.abspath('../idmd')
-    output_dir = os.path.abspath('./generated')
+    """Generate .rst files from source modules using sphinx-apidoc."""
+    src_dir = os.path.abspath("../idmd")
+    output_dir = os.path.abspath("generated")
 
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
     os.makedirs(output_dir)
 
-    cmd = [
+    # Run sphinx-apidoc using subprocess for RTD compatibility
+    subprocess.run([
         sys.executable,
-        '-m',
-        'sphinx.ext.apidoc',
-        '-f',
-        '-o', output_dir,
-        src_dir,
-        '--no-toc',
-        '--separate',
-    ]
-
-    subprocess.check_call(cmd)
+        "-m",
+        "sphinx.ext.apidoc",
+        "-f",             # overwrite
+        "-o", output_dir, # output dir
+        src_dir           # source dir
+    ], check=True)
 
 def setup(app):
-    app.connect('builder-inited', run_apidoc)
-
-# -- Options for HTML output -------------------------------------------------
-
-html_theme = "sphinx_rtd_theme"
+    app.connect("builder-inited", run_apidoc)
