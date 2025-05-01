@@ -1,3 +1,4 @@
+"""Module for data preview component."""
 import streamlit as st
 
 from .base import Component
