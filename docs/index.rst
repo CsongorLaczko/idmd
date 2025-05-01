@@ -36,6 +36,7 @@ API
 
 .. autosummary::
    :toctree: generated
+   :recursive:
 
    idmd
 
