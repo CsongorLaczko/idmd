@@ -1,3 +1,4 @@
+"""Module for report generator component."""
 import streamlit as st
 
 from ..report.report import ReportGenerator
