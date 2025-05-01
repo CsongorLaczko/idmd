@@ -31,8 +31,9 @@ extensions = [
 
 autosummary_generate = True
 
-def run_apidoc(_):
-    from sphinx.ext.apidoc import main
+def run_apidoc(app):
+    import subprocess
+    import sys
     import os
     import shutil
 
@@ -41,14 +42,20 @@ def run_apidoc(_):
 
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
+    os.makedirs(output_dir)
 
-    main([
-        '--force',
+    cmd = [
+        sys.executable,
+        '-m',
+        'sphinx.apidoc',
+        '-f',            # force overwrite
+        '-o', output_dir,
+        src_dir,
         '--no-toc',
         '--separate',
-        '-o', output_dir, src_dir, 
-        '**/tests/*',  # optionally exclude tests
-    ])
+    ]
+
+    subprocess.check_call(cmd)
 
 def setup(app):
     app.connect('builder-inited', run_apidoc)
