@@ -8,7 +8,7 @@ Welcome to idmd's documentation!
 
 This is a python package that allows you to manipulate and visualize datasets. You can upload or generate data, then use features like replacing values, swithcing or dropping columns, etc. Create plots, histograms and heatmaps from selected columns and look at the statistics of your dataset. Export your data as an excel file, or create a pdf report including preview, stats and plots.
 
-Git repository: <https://github.com/CsongorLaczko/idmd>`_
+Git repository: https://github.com/CsongorLaczko/idmd
 
 .. toctree::
    :maxdepth: 2
