@@ -38,6 +38,7 @@ API
    :toctree: generated
 
    idmd
+   idmd/ui
 
 License
 =======
