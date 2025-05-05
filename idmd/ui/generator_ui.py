@@ -41,7 +41,7 @@ class DataGeneratorUI(Component):
         std = st.number_input("Standard Deviation", value=1.0, step=0.1, key="normal_std_input")
 
         if st.button("Generate Normal Distribution"):
-            df = DatasetGenerator.generate_normal_distribution(size=size, mean=mean, std=std)
+            df = DatasetGenerator.generate_normal_distribution(size=(size, 1), mean=mean, std=std)
             st.session_state.df = df
             st.success("Normal distribution dataset generated!")
             st.dataframe(df.head())
@@ -57,7 +57,7 @@ class DataGeneratorUI(Component):
         high = st.number_input("Upper Bound", value=1.0, step=0.1, key="uniform_high_input")
 
         if st.button("Generate Uniform Distribution"):
-            df = DatasetGenerator.generate_uniform_distribution(size=size, low=low, high=high)
+            df = DatasetGenerator.generate_uniform_distribution(size=(size, 1), low=low, high=high)
             st.session_state.df = df
             st.success("Uniform distribution dataset generated!")
             st.dataframe(df.head())
@@ -73,7 +73,7 @@ class DataGeneratorUI(Component):
         high = st.number_input("Upper Bound", value=100, step=1, key="random_high_input")
 
         if st.button("Generate Random Integers"):
-            df = DatasetGenerator.generate_random_integers(size=size, low=low, high=high)
+            df = DatasetGenerator.generate_random_integers(size=(size, 1), low=low, high=high)
             st.session_state.df = df
             st.success("Random integers dataset generated!")
             st.dataframe(df.head())
