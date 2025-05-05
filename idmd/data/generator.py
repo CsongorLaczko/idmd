@@ -7,7 +7,7 @@ class DatasetGenerator:
     """Generates sample datasets with different distributions."""
 
     @staticmethod
-    def generate_normal_distribution(size: int, mean: float = 0, std: float = 1) -> pd.DataFrame:
+    def generate_normal_distribution(size: tuple[int, int], mean: float = 0, std: float = 1) -> pd.DataFrame:
         """
         Generate a dataset with a normal distribution.
 
@@ -20,10 +20,10 @@ class DatasetGenerator:
             pd.DataFrame: A DataFrame containing the generated data.
         """
         data = np.random.normal(loc=mean, scale=std, size=size)
-        return pd.DataFrame({"Normal Distribution": data})
+        return pd.DataFrame({f"Normal Distribution {i+1}": data[:, i] for i in range(size[1])})
 
     @staticmethod
-    def generate_uniform_distribution(size: int, low: float = 0, high: float = 1) -> pd.DataFrame:
+    def generate_uniform_distribution(size: tuple[int, int], low: float = 0, high: float = 1) -> pd.DataFrame:
         """
         Generate a dataset with a uniform distribution.
 
@@ -36,10 +36,10 @@ class DatasetGenerator:
             pd.DataFrame: A DataFrame containing the generated data.
         """
         data = np.random.uniform(low=low, high=high, size=size)
-        return pd.DataFrame({"Uniform Distribution": data})
+        return pd.DataFrame({f"Uniform Distribution {i+1}": data[:, i] for i in range(size[1])})
 
     @staticmethod
-    def generate_random_integers(size: int, low: int = 0, high: int = 100) -> pd.DataFrame:
+    def generate_random_integers(size: tuple[int, int], low: int = 0, high: int = 100) -> pd.DataFrame:
         """
         Generate a dataset with random integers.
 
@@ -52,4 +52,4 @@ class DatasetGenerator:
             pd.DataFrame: A DataFrame containing the generated data.
         """
         data = np.random.randint(low=low, high=high, size=size)
-        return pd.DataFrame({"Random Integers": data})
+        return pd.DataFrame({f"Random Integers {i+1}": data[:, i] for i in range(size[1])})
