@@ -8,9 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-    environment:
-      name: testpypi
-      url: https://test.pypi.org/p/idmd
+    environment: testpypi
     steps:
       - uses: actions/checkout@v4.2.2
 
@@ -26,7 +24,4 @@ jobs:
         run: python -m build
 
       - name: Publish distribution to TestPyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          repository-url: https://test.pypi.org/legacy/
-          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        uses: pypa/gh-action-pypi-publish@v1.12.4
