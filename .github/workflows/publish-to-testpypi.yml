@@ -2,7 +2,6 @@ name: Publish Python 🐍 distribution 📦 to TestPyPI
 
 on:
   workflow_dispatch:
-
 jobs:
   pypi-publish:
     name: Publish to TestPyPI
@@ -11,13 +10,13 @@ jobs:
     permissions:
       id-token: write
     steps:
-      - name: Checkouut code
-        uses: actions/checkout@v4.2.2
-      - name: Build package
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Build Package
         run: |
           python3 -m pip install --upgrade pip build
           python3 -m build
-      - name: Publish distribution to TestPyPI
-          uses: pypa/gh-action-pypi-publish@v1.12.4
-          with:
-            repository-url: https://test.pypi.org/legacy/
+      - name: Publish to TestPyPi
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
