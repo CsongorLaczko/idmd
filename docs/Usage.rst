@@ -48,3 +48,6 @@ Finally, run this python script with streamlit in your command line:
   streamlit run file_name.py
 
 Your dashboard will be ready to use in seconds, and you will be able to upload your data (or generate data). Multiple features are available to manipulate and visualize your data, such as swithcing or dropping columns, replacing values, creating plots and histograms. Download your data as an Excel file, or create a pdf report including statistics and plots.
+
+Example google colab notebook:
+https://colab.research.google.com/github/CsongorLaczko/idmd/blob/main/example_app.ipynb
