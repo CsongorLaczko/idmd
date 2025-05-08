@@ -34,4 +34,3 @@ templates_path = ["_templates"]
 # html_css_files = ["readthedocs-custom.css"] # Override some CSS settings
 
 html_theme = "sphinx_rtd_theme"
-html_static_path = ["_static"]
