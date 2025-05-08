@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    uses: .github/workflows/run-tests.yml@
+    uses: .github/workflows/run-tests.yml
 
   build:
     name: Build distribution 📦
