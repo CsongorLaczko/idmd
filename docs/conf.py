@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath(".."))  # project root
 # -- Project information --------------------------------------------
 project = "idmd"
 author = "Bence Gercuj, Csongor Loránd Laczkó, Richárd Bence Rózsa"
-release = "1.0"
+release = "0.0.1a2"
 
 # -- General configuration ------------------------------------------
 extensions = [
