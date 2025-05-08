@@ -1,4 +1,5 @@
 """Module for value replacement component."""
+
 import streamlit as st
 from pandas import DataFrame
 
@@ -6,7 +7,6 @@ from ..manipulation.replace import ReplaceLogic
 from .base import Component
 
 
-# TODO: Debug, since the values are not updates nor in DataPreview nor in exported file.
 class ReplaceUI(Component):
     """Provides UI for replacing values in a DataFrame."""
 
@@ -28,7 +28,9 @@ class ReplaceUI(Component):
 
         if st.button("Apply Value Replacement"):
             if replace_col and values_to_replace and replacement_method:
-                updated_df: DataFrame = ReplaceLogic.replace_values(df, replace_col, values_to_replace, replacement_method)
+                updated_df: DataFrame = ReplaceLogic.replace_values(
+                    df, replace_col, values_to_replace, replacement_method
+                )
                 st.session_state.df = updated_df
                 st.success(f"Values in '{replace_col}' replaced successfully.")
             else:

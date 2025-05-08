@@ -1,4 +1,5 @@
 """Module for data exporter component."""
+
 import streamlit as st
 
 from ..data.exporter import DataExporter

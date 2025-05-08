@@ -1,4 +1,5 @@
 """Module for data statistics component."""
+
 import io
 
 import streamlit as st

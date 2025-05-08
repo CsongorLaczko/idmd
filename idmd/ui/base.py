@@ -1,4 +1,5 @@
 """Module for All UI components."""
+
 from abc import ABC, abstractmethod
 
 

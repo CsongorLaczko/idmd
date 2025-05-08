@@ -1,4 +1,5 @@
 """Module for data generator component."""
+
 import streamlit as st
 
 from ..data.generator import DatasetGenerator

@@ -1,4 +1,5 @@
 """Module for data visualization."""
+
 from typing import List
 
 import pandas as pd

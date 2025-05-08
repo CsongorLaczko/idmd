@@ -1,4 +1,5 @@
 """Module for report generation."""
+
 import io
 
 import matplotlib.pyplot as plt

@@ -1,4 +1,5 @@
 """Module for data upload."""
+
 import pandas as pd
 
 

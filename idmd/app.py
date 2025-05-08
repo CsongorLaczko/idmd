@@ -1,4 +1,5 @@
 """Module for orchestrating component integration."""
+
 from typing import Dict, List, Optional, Tuple
 
 import streamlit as st
@@ -41,7 +42,8 @@ class DataApp:
         Registers a component to the application.
 
         Args:
-            component (Component): The component to add. The component must have a `position` attribute and a `render` method.
+            component (Component): The component to add. The component must have a
+                `position` attribute and a `render` method.
 
         Returns:
             DataApp: The current instance of the DataApp, allowing method chaining.

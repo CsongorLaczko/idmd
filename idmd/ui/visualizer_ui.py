@@ -1,4 +1,5 @@
 """Module for data visualizer component."""
+
 from typing import List
 
 import streamlit as st
