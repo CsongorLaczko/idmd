@@ -36,9 +36,8 @@ Documentation = "https://idmd.readthedocs.io"
 Repository = "https://github.com/CsongorLaczko/idmd.git"
 Issues = "https://github.com/CsongorLaczko/idmd/issues"
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["idmd*"]
+[tool.setuptools]
+packages = ["idmd"]
 
 [tool.black]
 line-length = 120
