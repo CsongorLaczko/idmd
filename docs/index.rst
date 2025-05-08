@@ -17,5 +17,5 @@ Git repository: https://github.com/CsongorLaczko/idmd
    Installation
    Usage
    Features
-   API reference <_autosummary/idmd>
+   API reference <api_reference>
    License
