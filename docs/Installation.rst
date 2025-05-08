@@ -1,11 +1,13 @@
 Installation
 ===============
-To use our package, first install it using pip:
+To use our package, install it from TestPyPI with dependencies installed from PyPI:
 
 .. code-block:: console
 
-   pip install -i https://test.pypi.org/simple/ idmd
+   !pip install --index-url https://test.pypi.org/simple/ \
+                --extra-index-url https://pypi.org/simple \
+                idmd
 
-Our package on pypi:
+Our package on TestPyPI:
 
 https://test.pypi.org/project/idmd/
