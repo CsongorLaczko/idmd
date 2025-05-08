@@ -4,12 +4,11 @@ build:
   os: ubuntu-22.04
   tools:
     python: "3.12"
-  jobs:
-    pre:
-      - sphinx-build -vv -b html -d _build/doctrees docs $READTHEDOCS_OUTPUT/html
 
 sphinx:
   configuration: docs/conf.py
+  builder: html
+  verbose: true
 
 python:
   install:
