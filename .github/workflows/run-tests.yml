@@ -2,7 +2,6 @@ name: 🧪 Run Tests and Code Quality Checks
 
 on:
   push:
-  workflow_call:
 
 jobs:
   test:
