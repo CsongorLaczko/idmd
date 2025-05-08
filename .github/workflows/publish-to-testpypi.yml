@@ -8,8 +8,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    uses: .github/workflows/run-tests.yml@
+
   build:
     name: Build distribution 📦
+    needs:
+    - test
     runs-on: ubuntu-latest
 
     steps:
