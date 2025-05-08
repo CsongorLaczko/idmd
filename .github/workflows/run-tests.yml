@@ -23,31 +23,26 @@ jobs:
     - name: 📦 Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements-dev.txt; fi
 
     - name: 🧹 Lint with Flake8
       run: |
-        pip install flake8 flake8-pyproject
         flake8 .
 
     - name: 🎨 Format Check with Black
       run: |
-        pip install black
         black --check .
 
     - name: 📚 Import Sorting Check with isort
       run: |
-        pip install isort
         isort --check-only .
 
     - name: 🔒 Security Check with Bandit
       run: |
-        pip install bandit
-        bandit -r .
+        bandit -r idmd
 
     - name: 🧪 Run Tests with Pytest
       run: |
-        pip install coverage
         coverage run -m pytest -v -s
 
     - name: 📊 Generate Coverage Report
