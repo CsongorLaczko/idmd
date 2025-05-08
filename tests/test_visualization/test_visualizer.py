@@ -2,17 +2,12 @@ from unittest.mock import MagicMock, patch
 
 import pandas as pd
 import pytest
-
 from idmd.visualization.visualizer import DataVisualizer
 
 
 @pytest.fixture
 def sample_df():
-    return pd.DataFrame({
-        "a": [1, 2, 3],
-        "b": [4, 5, 6],
-        "c": ["x", "y", "z"]
-    })
+    return pd.DataFrame({"a": [1, 2, 3], "b": [4, 5, 6], "c": ["x", "y", "z"]})
 
 
 @patch("idmd.visualization.visualizer.PlotGenerator")

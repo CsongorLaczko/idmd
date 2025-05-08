@@ -1,5 +1,4 @@
 import pytest
-
 from idmd.ui.base import Component
 
 

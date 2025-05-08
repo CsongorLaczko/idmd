@@ -1,15 +1,11 @@
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
 from idmd.visualization.heatmaps import HeatmapGenerator
 
 
 def test_generate_correlation_heatmap_valid_columns():
     """Test generating a correlation heatmap with valid columns."""
-    df = pd.DataFrame({
-        "A": [1, 2, 3, 4, 5],
-        "B": [5, 4, 3, 2, 1],
-        "C": [2, 3, 4, 5, 6]
-    })
+    df = pd.DataFrame({"A": [1, 2, 3, 4, 5], "B": [5, 4, 3, 2, 1], "C": [2, 3, 4, 5, 6]})
 
     fig = HeatmapGenerator.generate_correlation_heatmap(df, columns=["A", "B", "C"])
 
@@ -20,10 +16,7 @@ def test_generate_correlation_heatmap_valid_columns():
 
 def test_generate_correlation_heatmap_missing_column():
     """Test generating a correlation heatmap with a missing column."""
-    df = pd.DataFrame({
-        "A": [1, 2, 3, 4, 5],
-        "B": [5, 4, 3, 2, 1]
-    })
+    df = pd.DataFrame({"A": [1, 2, 3, 4, 5], "B": [5, 4, 3, 2, 1]})
 
     try:
         HeatmapGenerator.generate_correlation_heatmap(df, columns=["A", "B", "C"])
@@ -43,9 +36,7 @@ def test_generate_correlation_heatmap_empty_dataframe():
 
 def test_generate_correlation_heatmap_single_column():
     """Test generating a correlation heatmap with a single column."""
-    df = pd.DataFrame({
-        "A": [1, 2, 3, 4, 5]
-    })
+    df = pd.DataFrame({"A": [1, 2, 3, 4, 5]})
 
     fig = HeatmapGenerator.generate_correlation_heatmap(df, columns=["A"])
 

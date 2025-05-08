@@ -1,22 +1,17 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import pytest
-
 from idmd.visualization.plots import PlotGenerator
 
 
 @pytest.fixture
 def sample_df():
-    return pd.DataFrame({
-        "col1": [1, 2, 3],
-        "col2": [4, 5, 6],
-        "category": ["A", "B", "A"]
-    })
+    return pd.DataFrame({"col1": [1, 2, 3], "col2": [4, 5, 6], "category": ["A", "B", "A"]})
 
 
 def test_generate_line_plot_returns_figure(sample_df):
     fig = PlotGenerator.generate_line_plot(sample_df, ["col1", "col2"])
-    
+
     assert isinstance(fig, plt.Figure)
 
     ax = fig.axes[0]
@@ -30,7 +25,7 @@ def test_generate_line_plot_returns_figure(sample_df):
 
 def test_generate_bar_plot_returns_figure(sample_df):
     fig = PlotGenerator.generate_bar_plot(sample_df, "category")
-    
+
     assert isinstance(fig, plt.Figure)
 
     ax = fig.axes[0]

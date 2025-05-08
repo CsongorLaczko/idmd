@@ -1,16 +1,11 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-
 from idmd.visualization.histograms import HistogramGenerator
 
 
 def test_generate_histograms_valid_columns():
     """Test generating histograms with valid columns."""
-    df = pd.DataFrame({
-        "A": [1, 2, 3, 4, 5],
-        "B": [5, 4, 3, 2, 1],
-        "C": [2, 3, 4, 5, 6]
-    })
+    df = pd.DataFrame({"A": [1, 2, 3, 4, 5], "B": [5, 4, 3, 2, 1], "C": [2, 3, 4, 5, 6]})
 
     fig = HistogramGenerator.generate_histograms(df, columns=["A", "B", "C"])
 
@@ -23,10 +18,7 @@ def test_generate_histograms_valid_columns():
 
 def test_generate_histograms_missing_column():
     """Test generating histograms with a missing column."""
-    df = pd.DataFrame({
-        "A": [1, 2, 3, 4, 5],
-        "B": [5, 4, 3, 2, 1]
-    })
+    df = pd.DataFrame({"A": [1, 2, 3, 4, 5], "B": [5, 4, 3, 2, 1]})
 
     try:
         HistogramGenerator.generate_histograms(df, columns=["A", "B", "C"])
@@ -41,14 +33,14 @@ def test_generate_histograms_empty_dataframe():
     try:
         HistogramGenerator.generate_histograms(df, columns=[])
     except ValueError as e:
-        assert "Number of rows must be a positive integer, not 0" in str(e), "The error message should indicate that there is no data."
+        assert "Number of rows must be a positive integer, not 0" in str(
+            e
+        ), "The error message should indicate that there is no data."
 
 
 def test_generate_histograms_single_column():
     """Test generating a histogram with a single column."""
-    df = pd.DataFrame({
-        "A": [1, 2, 3, 4, 5]
-    })
+    df = pd.DataFrame({"A": [1, 2, 3, 4, 5]})
 
     fig = HistogramGenerator.generate_histograms(df, columns=["A"])
 
@@ -61,10 +53,7 @@ def test_generate_histograms_single_column():
 
 def test_generate_histograms_extra_empty_subplots():
     """Test that extra subplots are empty when the number of columns is less than the grid size."""
-    df = pd.DataFrame({
-        "A": [1, 2, 3, 4, 5],
-        "B": [5, 4, 3, 2, 1]
-    })
+    df = pd.DataFrame({"A": [1, 2, 3, 4, 5], "B": [5, 4, 3, 2, 1]})
 
     fig = HistogramGenerator.generate_histograms(df, columns=["A", "B"])
 
