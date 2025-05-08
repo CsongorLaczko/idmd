@@ -4,7 +4,9 @@ To use our package, install it from TestPyPI with dependencies installed from Py
 
 .. code-block:: console
 
-   !pip install idmd
+   !pip install --index-url https://test.pypi.org/simple/ \
+                --extra-index-url https://pypi.org/simple \
+                idmd
 
 Our package on TestPyPI:
 
