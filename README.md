@@ -3,6 +3,8 @@
 
 The **Interactive Data Manipulator and Descriptor (IDMD)** is a Python package designed for interactive data exploration, manipulation, visualization, and reporting. It provides a modular structure for handling datasets, making it easy to extend and maintain. (Scientific Python course at PPCU - project work)
 
+![idmd chart](images/idmd_chart.svg)
+
 ## Dependencies
 
 The IDMD package requires the following main dependencies:
