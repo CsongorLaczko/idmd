@@ -3,6 +3,15 @@
 
 The **Interactive Data Manipulator and Descriptor (IDMD)** is a Python package designed for interactive data exploration, manipulation, visualization, and reporting. It provides a modular structure for handling datasets, making it easy to extend and maintain. (Scientific Python course at PPCU - project work)
 
+## Dependencies
+
+The IDMD package requires the following main dependencies:
+- matplotlib
+- streamlit
+- pandas
+
+For specific version requirements, refer to the [requirements.txt](requirements.txt) file. If you are developing or contributing to the project, additional tools for code quality, formatting, linting, and testing are listed in [requirements-dev.txt](requirements-dev.txt).
+
 ---
 
 ## Package Structure
@@ -96,6 +105,12 @@ Run the example application using:
 ```bash
 streamlit run example_app.py
 ```
+
+You can also explore the interactive example notebook [example_app.ipynb](example_app.ipynb) that demonstrates:
+- Package installation
+- Creating a complete dashboard application
+- Running the app locally or on Google Colab
+- Using all major components of the package
 
 ---
 
