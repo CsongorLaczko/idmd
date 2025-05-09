@@ -6,6 +6,7 @@ import streamlit as st
 from ..data.generator import DatasetGenerator
 from .base import Component
 
+
 class FileGeneratorUI(Component):
     """Provides UI for data generation."""
 
@@ -28,7 +29,7 @@ class FileGeneratorUI(Component):
 
         size = (sample_count, column_count)
 
-        params: dict[str, int|float] = {}
+        params: dict[str, int | float] = {}
 
         if selected_distribution == "normal":
             params["normal_mean"] = st.number_input("Mean")
