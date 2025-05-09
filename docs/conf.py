@@ -23,6 +23,7 @@ autoclass_content = "both"  # Add __init__ doc (ie. params) to class summaries
 set_type_checking_flag = True  # Enable 'expensive' imports for sphinx_autodoc_typehints
 
 templates_path = ["_templates"]
+html_extra_path = ['images']
 
 # -- Options for HTML output ----------------------------------------
 # on_rtd is whether on readthedocs.org, this line of code grabbed from docs.readthedocs.org...
@@ -35,3 +36,8 @@ templates_path = ["_templates"]
 # html_css_files = ["readthedocs-custom.css"] # Override some CSS settings
 
 html_theme = "sphinx_rtd_theme"
+
+html_logo = "images/idmd_icon.png"
+html_theme_options = {
+    "logo_only": True,
+}
