@@ -4,15 +4,13 @@ To use our package, install it from TestPyPI with dependencies installed from Py
 
 .. code-block:: console
 
-   !pip install --index-url https://test.pypi.org/simple/ \
-                --extra-index-url https://pypi.org/simple \
-                idmd
+   pip install idmd==0.0.2
 
 The following dependencies are automatically installed:
 
 .. include:: ../requirements.txt
    :literal:
 
-Our package on TestPyPI:
+Our package on PyPI:
 
-https://test.pypi.org/project/idmd/
+https://pypi.org/project/idmd/
