@@ -10,7 +10,7 @@ To use our package, install it from TestPyPI with dependencies installed from Py
 
 The following dependencies are automatically installed:
 
-.. include:: requirements.txt
+.. include:: ../requirements.txt
    :literal:
 
 Our package on TestPyPI:
