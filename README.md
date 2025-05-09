@@ -112,6 +112,13 @@ You can also explore the interactive example notebook [example_app.ipynb](exampl
 - Running the app locally or on Google Colab
 - Using all major components of the package
 
+Opening the resulting website, should show a dashboard like this:
+![Dashboard example without data](images/Dashboard_without_data.png)
+
+Loading or generating data should show a similar result:
+![Dashboard example with data 1](images/Dashboard_with_data_1.png)
+![Dashboard example with data 2](images/Dashboard_with_data_2.png)
+
 ---
 
 ## Links
