@@ -5,8 +5,8 @@ from idmd import (
     DataPreview,
     DataStats,
     DataVisualizerUI,
-    FileUploaderUI,
     FileGeneratorUI,
+    FileUploaderUI,
     ReplaceUI,
     ReportUI,
 )
