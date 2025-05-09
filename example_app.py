@@ -6,6 +6,7 @@ from idmd import (
     DataStats,
     DataVisualizerUI,
     FileUploaderUI,
+    FileGeneratorUI,
     ReplaceUI,
     ReportUI,
 )
@@ -14,6 +15,7 @@ app = DataApp()
 (
     app.set_column_name(0, "Description | Manipulation")
     .add_component(FileUploaderUI())
+    .add_component(FileGeneratorUI())
     .add_component(DataPreview())
     .add_component(DataStats())
     .add_component(ReplaceUI())
