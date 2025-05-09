@@ -3,7 +3,7 @@
 
 The **Interactive Data Manipulator and Descriptor (IDMD)** is a Python package designed for interactive data exploration, manipulation, visualization, and reporting. It provides a modular structure for handling datasets, making it easy to extend and maintain. (Scientific Python course at PPCU - project work)
 
-![idmd chart](images/idmd_chart.svg)
+![idmd chart](https://raw.githubusercontent.com/CsongorLaczko/idmd/4fc799ad815ab0c828b6be8fa24a2f06ebc0dbbc/images/idmd_chart.svg)
 
 ## Dependencies
 
@@ -115,11 +115,11 @@ You can also explore the interactive example notebook `example_app.ipynb` that d
 - Using all major components of the package
 
 Opening the resulting website, should show a dashboard like this:
-![Dashboard example without data](images/Dashboard_without_data.png)
+![Dashboard example without data](https://github.com/CsongorLaczko/idmd/blob/main/images/Dashboard_without_data.png?raw=true)
 
 Loading or generating data should show a similar result:
-![Dashboard example with data 1](images/Dashboard_with_data_1.png)
-![Dashboard example with data 2](images/Dashboard_with_data_2.png)
+![Dashboard example with data 1](https://github.com/CsongorLaczko/idmd/blob/main/images/Dashboard_with_data_1.png?raw=true)
+![Dashboard example with data 2](https://github.com/CsongorLaczko/idmd/blob/main/images/Dashboard_with_data_2.png?raw=true)
 
 ---
 
