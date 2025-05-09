@@ -14,12 +14,14 @@ from .ui.exporter_ui import DataExporterUI
 from .ui.generator_ui import DataGeneratorUI
 from .ui.replace_ui import ReplaceUI
 from .ui.report_ui import ReportUI
-from .ui.uploader_ui import FileUploaderGeneratorUI
+from .ui.uploader_ui import FileUploaderUI
+from .ui.uploader_generator_ui import FileGeneratorUI
 from .ui.visualizer_ui import DataVisualizerUI
 
 __all__ = [
     "DataApp",
-    "FileUploaderGeneratorUI",
+    "FileUploaderUI",
+    "FileGeneratorUI",
     "DataExporterUI",
     "DataGeneratorUI",
     "ColumnManipulatorUI",
