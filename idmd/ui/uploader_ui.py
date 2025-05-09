@@ -40,3 +40,4 @@ class FileUploaderUI(Component):
                 self.uploader.load_default_file(st.session_state)
             except ValueError as e:
                 st.error(str(e))
+    
