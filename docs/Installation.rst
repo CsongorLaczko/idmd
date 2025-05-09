@@ -1,6 +1,6 @@
 Installation
 ===============
-To use our package, install it from TestPyPI with dependencies installed from PyPI:
+To use our package, install it from PyPI:
 
 .. code-block:: console
 
