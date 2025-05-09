@@ -9,8 +9,6 @@ Welcome to idmd's documentation!
 .. include:: ../README.md
    :parser: myst_parser.sphinx_
 
-Git repository: https://github.com/CsongorLaczko/idmd
-
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
