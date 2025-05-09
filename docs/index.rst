@@ -6,7 +6,7 @@
 Welcome to idmd's documentation!
 ==================================
 
-.. include:: README.md
+.. include:: ../README.md
    :parser: myst_parser.sphinx_
 
 Git repository: https://github.com/CsongorLaczko/idmd
