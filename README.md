@@ -12,7 +12,7 @@ The IDMD package requires the following main dependencies:
 - streamlit
 - pandas
 
-For specific version requirements, refer to the [requirements.txt](requirements.txt) file. If you are developing or contributing to the project, additional tools for code quality, formatting, linting, and testing are listed in [requirements-dev.txt](requirements-dev.txt).
+For specific version requirements, refer to the `requirements.txt` file. If you are developing or contributing to the project, additional tools for code quality, formatting, linting, and testing are listed in `requirements-dev.txt`.
 
 ---
 
@@ -22,9 +22,9 @@ For specific version requirements, refer to the [requirements.txt](requirements.
 Handles all data-related operations, such as file uploading, dataset generation, and exporting.
 
 - **Submodules**:
-  - [`export.py`](idmd/data/exporter.py): Handles exporting datasets to CSV or other formats.
-  - [`generator.py`](idmd/data/generator.py): Generates sample datasets with different distributions.
-  - [`uploader.py`](idmd/data/uploader.py): Handles file uploads and loading datasets.
+  - `export.py`: Handles exporting datasets to CSV or other formats.
+  - `generator.py`: Generates sample datasets with different distributions.
+  - `uploader.py`: Handles file uploads and loading datasets.
 
 ---
 
@@ -32,8 +32,8 @@ Handles all data-related operations, such as file uploading, dataset generation,
 Provides functionality for manipulating datasets.
 
 - **Submodules**:
-  - [`columns.py`](idmd/manipulation/columns.py): Handles column-specific operations like swapping, dropping, and selecting columns.
-  - [`replace.py`](idmd/manipulation/replace.py): Handles value-specific operations like replacing values with mean, median, or other methods.
+  - `columns.py`: Handles column-specific operations like swapping, dropping, and selecting columns.
+  - `replace.py`: Handles value-specific operations like replacing values with mean, median, or other methods.
 
 ---
 
@@ -41,15 +41,15 @@ Provides functionality for manipulating datasets.
 Contains components for rendering the Streamlit interface.
 
 - **Submodules**:
-  - [`base.py`](idmd/ui/base.py): Defines the abstract `Component` class for all UI components.
-  - [`columns_ui.py`](idmd/ui/columns_ui.py): Provides UI for column manipulation.
-  - [`data_preview.py`](idmd/ui/data_preview.py): Displays a preview of the dataset.
-  - [`data_stats.py`](idmd/ui/data_stats.py): Displays dataset statistics and metadata.
-  - [`exporter_ui.py`](idmd/ui/exporter_ui.py): Provides UI for exporting data.
-  - [`generator_ui.py`](idmd/ui/generator_ui.py): Provides UI for generating data.
-  - [`replace_ui.py`](idmd/ui/replace_ui.py): Provides UI for replacing operations.
-  - [`uploader_ui.py`](idmd/ui/uploader_ui.py): Provides UI for file uploading.
-  - [`visualizer_ui.py`](idmd/ui/visualizer_ui.py): Provides UI for visualizing data, including default and custom plots.
+  - `base.py`: Defines the abstract `Component` class for all UI components.
+  - `columns_ui.py`: Provides UI for column manipulation.
+  - `data_preview.py`: Displays a preview of the dataset.
+  - `data_stats.py`: Displays dataset statistics and metadata.
+  - `exporter_ui.py`: Provides UI for exporting data.
+  - `generator_ui.py`: Provides UI for generating data.
+  - `replace_ui.py`: Provides UI for replacing operations.
+  - `uploader_ui.py`: Provides UI for file uploading.
+  - `visualizer_ui.py`: Provides UI for visualizing data, including default and custom plots.
 
 ---
 
@@ -57,10 +57,10 @@ Contains components for rendering the Streamlit interface.
 Handles data visualization.
 
 - **Submodules**:
-  - [`plots.py`](idmd/visualization/plots.py): Generates various types of plots (e.g., line plots, bar plots).
-  - [`heatmaps.py`](idmd/visualization/heatmaps.py): Generates correlation heatmaps.
-  - [`histograms.py`](idmd/visualization/histograms.py): Generates histograms.
-  - [`visualizer.py`](idmd/visualization/visualizer.py): Utility class for generating visualizations, including line plots, histograms, and heatmaps.
+  - `plots.py`: Generates various types of plots (e.g., line plots, bar plots).
+  - `heatmaps.py`: Generates correlation heatmaps.
+  - `histograms.py`: Generates histograms.
+  - `visualizer.py`: Utility class for generating visualizations, including line plots, histograms, and heatmaps.
 
 ---
 
@@ -68,7 +68,7 @@ Handles data visualization.
 Handles report generation.
 
 - **Submodules**:
-  - [`report.py`](idmd/report/report.py): Generates PDF reports with data and visualizations.
+  - `report.py`: Generates PDF reports with data and visualizations.
 
 ---
 
@@ -108,7 +108,7 @@ Run the example application using:
 streamlit run example_app.py
 ```
 
-You can also explore the interactive example notebook [example_app.ipynb](example_app.ipynb) that demonstrates:
+You can also explore the interactive example notebook `example_app.ipynb` that demonstrates:
 - Package installation
 - Creating a complete dashboard application
 - Running the app locally or on Google Colab
