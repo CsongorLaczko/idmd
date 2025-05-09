@@ -22,7 +22,7 @@ For specific version requirements, refer to the [requirements.txt](requirements.
 Handles all data-related operations, such as file uploading, dataset generation, and exporting.
 
 - **Submodules**:
-  - [`export.py`](idmd/data/export.py): Handles exporting datasets to CSV or other formats.
+  - [`export.py`](idmd/data/exporter.py): Handles exporting datasets to CSV or other formats.
   - [`generator.py`](idmd/data/generator.py): Generates sample datasets with different distributions.
   - [`uploader.py`](idmd/data/uploader.py): Handles file uploads and loading datasets.
 
